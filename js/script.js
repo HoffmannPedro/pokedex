@@ -212,13 +212,11 @@ function ajustarPosicion() {
   // Obtener el contenedor y el elemento
   let contenedor = document.getElementsByClassName("sprite-container")[0];
   let elemento = document.getElementById("pokemon-sprite");
-  console.log(contenedor);
-  console.log(elemento);
+
   // Obtener el tamaño del contenedor
   let contenedorWidth = contenedor.offsetWidth;
   let contenedorHeight = contenedor.offsetHeight;
-  console.log(contenedorWidth);
-  console.log(contenedorHeight);
+
   // Calcular las nuevas posiciones para el elemento
   let left = contenedorWidth / 2 - elemento.offsetWidth / 2;
   let topPosition = contenedorHeight / 2 - elemento.offsetHeight / 2;
