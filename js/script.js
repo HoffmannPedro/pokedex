@@ -222,7 +222,7 @@ function getPokemon() {
 function ajustarPosicion() {
   // Obtener el contenedor y el elemento
   let contenedor = document.getElementsByClassName("sprite-container")[0];
-  let elemento = document.getElementById("pokemon-sprite");
+  let elemento = document.getElementById("sprite");
 
   // Obtener el tamaño del contenedor
   let contenedorWidth = contenedor.offsetWidth;
