@@ -42,7 +42,11 @@ getAllPokemon()
 
 function getPokemon() {
   let nameOrId = document.getElementById("search-input").value;
+  if (nameOrId === "Red") {
+    alert("Pokémon not found");
+  }
   nameOrId = nameOrId.toLowerCase();
+
   getPokemonInfo(nameOrId)
     .then((pokemonInfo) => {
       let pokeName = document.getElementById("pokemon-name");
@@ -56,7 +60,11 @@ function getPokemon() {
       let pokeSpecialAttack = document.getElementById("special-attack");
       let pokeSpecialDefense = document.getElementById("special-defense");
       let pokeSpeed = document.getElementById("speed");
-      let pokeSprite = document.getElementById("pokemon-sprite");
+      let pokeSprite = document.createElement("img");
+      pokeSprite.id = "sprite";
+
+      let imgContainer = document.getElementById("img-container");
+      // let pokeSprite = document.getElementById("pokemon-sprite");
 
       let pokeTypesArray = [];
       pokemonInfo.types.forEach((position) => {
@@ -81,6 +89,12 @@ function getPokemon() {
       pokeSpecialDefense.innerHTML = `<p>${pokemonInfo.stats[4].base_stat}</p>`;
       pokeSpeed.innerHTML = `<p>${pokemonInfo.stats[5].base_stat}</p>`;
       pokeSprite.src = pokemonInfo.sprites.front_default;
+
+      let existingSprite = document.getElementById("sprite");
+      if (existingSprite) {
+        imgContainer.removeChild(existingSprite);
+      }
+      imgContainer.appendChild(pokeSprite);
 
       switch (pokeTypeName.getElementsByTagName("p")[0].textContent) {
         case "water":
