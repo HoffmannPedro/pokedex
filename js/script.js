@@ -16,7 +16,7 @@ async function getAllPokemon() {
 }
 
 async function getPokemonInfo(nameOrId) {
-  const pokemonUrl = `http://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${nameOrId}/`;
+  const pokemonUrl = `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${nameOrId}/`;
   try {
     const response = await fetch(pokemonUrl);
     if (!response.ok) {
@@ -34,10 +34,7 @@ let pokemons = [];
 
 getAllPokemon()
   .then((allPokemon) => {
-    // console.log("Lista de Pokémon", allPokemon);
     allPokemon.results.forEach((pokemon) => {
-      //   console.log(`Nombre: ${pokemon.name}`);
-      //   console.log(`URL: ${pokemon.url}`);
       pokemons.push(pokemon);
     });
   })
